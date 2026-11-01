@@ -1,0 +1,11 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+node_modules/
+.DS_Store
+*.zip
+*.tar.gz
+*.tgz
+*.7z

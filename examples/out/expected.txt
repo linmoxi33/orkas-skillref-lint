@@ -1,0 +1,13 @@
+orkas-skillref-lint 0.1.0
+root: /home/ubuntu/GitHub/work/trending/orkas-skillref-lint/examples/in/marketplace
+agents=1 shared_skills=2 private_skills=1 refs=4
+refs: binding=2 inert=1 dangling=1 foreign=0
+findings: 2 (errors=1 warnings=1)
+
+## aaa000000001 Sample refs=4 effective=3
+  binding  shared00000001  -> shared00000001 (shared-id)
+  binding  frame-it  -> shared00000002 (shared-name)
+  inert    brush-routes  -> brush-routes (private)
+  dangling no-such  -> None (none)
+  [W] W01 ref 'brush-routes' only matches this agent's private Skill; it renders unconditionally, so the ref changes nothing
+  [E] E05 ref 'no-such' resolves to nothing: the prompt-render path drops it silently while the agent authoring path throws — behavior differs by code path

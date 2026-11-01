@@ -1,0 +1,10 @@
+{
+ "agent_id": "aaa000000001",
+ "name": "Sample",
+ "skill_list": [
+  "shared00000001",
+  "frame-it",
+  "brush-routes",
+  "no-such"
+ ]
+}

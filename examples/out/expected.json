@@ -1,0 +1,92 @@
+{
+  "agents": [
+    {
+      "agent_id": "aaa000000001",
+      "counts": {
+        "binding": 2,
+        "dangling": 1,
+        "foreign": 0,
+        "inert": 1
+      },
+      "effective_skills": [
+        "brush-routes",
+        "shared00000001",
+        "shared00000002"
+      ],
+      "findings": [
+        {
+          "message": "ref 'brush-routes' only matches this agent's private Skill; it renders unconditionally, so the ref changes nothing",
+          "ref": "brush-routes",
+          "rule": "W01",
+          "severity": "warning"
+        },
+        {
+          "message": "ref 'no-such' resolves to nothing: the prompt-render path drops it silently while the agent authoring path throws \u2014 behavior differs by code path",
+          "ref": "no-such",
+          "rule": "E05",
+          "severity": "error"
+        }
+      ],
+      "name": "Sample",
+      "refs": [
+        {
+          "kind": "binding",
+          "ref": "shared00000001",
+          "resolved_via": "shared-id",
+          "skill_id": "shared00000001"
+        },
+        {
+          "kind": "binding",
+          "ref": "frame-it",
+          "resolved_via": "shared-name",
+          "skill_id": "shared00000002"
+        },
+        {
+          "kind": "inert",
+          "ref": "brush-routes",
+          "resolved_via": "private",
+          "skill_id": "brush-routes"
+        },
+        {
+          "kind": "dangling",
+          "ref": "no-such",
+          "resolved_via": "none",
+          "skill_id": null
+        }
+      ],
+      "skill_list_count": 4
+    }
+  ],
+  "findings": [
+    {
+      "agent_id": "aaa000000001",
+      "message": "ref 'no-such' resolves to nothing: the prompt-render path drops it silently while the agent authoring path throws \u2014 behavior differs by code path",
+      "ref": "no-such",
+      "rule": "E05",
+      "severity": "error"
+    },
+    {
+      "agent_id": "aaa000000001",
+      "message": "ref 'brush-routes' only matches this agent's private Skill; it renders unconditionally, so the ref changes nothing",
+      "ref": "brush-routes",
+      "rule": "W01",
+      "severity": "warning"
+    }
+  ],
+  "root": "/home/ubuntu/GitHub/work/trending/orkas-skillref-lint/examples/in/marketplace",
+  "summary": {
+    "agents": 1,
+    "binding": 2,
+    "dangling": 1,
+    "errors": 1,
+    "findings": 2,
+    "foreign": 0,
+    "inert": 1,
+    "private_skills": 1,
+    "refs": 4,
+    "shared_skills": 2,
+    "warnings": 1
+  },
+  "tool": "orkas-skillref-lint",
+  "version": "0.1.0"
+}

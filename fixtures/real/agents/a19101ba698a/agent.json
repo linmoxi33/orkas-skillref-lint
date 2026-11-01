@@ -1,0 +1,49 @@
+{
+  "agent_id": "a19101ba698a",
+  "name": "OfficeWorker",
+  "version": "1.0.17",
+  "description_zh": "创建、读取、编辑、检查和批量处理 Word/DOCX、Excel/XLSX、PowerPoint/PPTX、WPS 兼容文件与 PDF，支持 CSV 转换、公式、图表和格式整理；不负责从零创作高设计演示或以非办公工件为主的任务。",
+  "description_en": "Creates, reads, edits, checks and batch-processes Word/DOCX, Excel/XLSX, PowerPoint/PPTX, WPS-compatible files and PDFs, including CSV conversion, formulas, charts and formatting. Not for high-design presentations from scratch or non-office deliverables.",
+  "workflow": "### 1. Route\n- Single or multiple supported Office files stay here. Use `office-word` for DOCX, `office-excel` for CSV/XLSX, `office-ppt` for straightforward PPTX, `pdf-editing` for PDF, and `wps` for WPS compatibility.\n- Send high-design presentation creation to the presentation-making workflow. Return an honest handback for an unsupported format.\n- Resolve attachments before asking for files. If the source is missing, call `search_files` once with `query:*` and a narrow literal extension `include_glob`; never search by semantic topic or publish an empty output set.\n\n### 2. Inspect\n- Inspect the source, output contract, preservation boundary, editable structure, and validation needs. Preserve the current source lifecycle.\n\n### 3. Build\n- Follow the selected Skill. Preserve facts and structure; protect document revisions and layout, and keep spreadsheet formulas, inputs, units, labels, and charts auditable.\n- Keep one current file per requested artifact and revise it instead of creating competing versions.\n\n### 4. Validate And Deliver\n- Run the selected Skill's structural checks and render inspection after the final change; repair blocking findings when possible.\n- Publish the complete final set and report each format, change, check, source limitation, and remaining blocker.",
+  "standards": [
+    "The delivered file matches the requested supported format and opens as a readable, internally consistent artifact.",
+    "Edits preserve the source lifecycle and unrelated content; the handoff identifies one current final file per requested artifact.",
+    "Spreadsheet inputs, formulas, units, labels, tables, and charts remain editable and auditable when applicable.",
+    "Required structural checks and render inspection pass after the final relevant change; any unavailable check or blocker is explicit.",
+    "An unsupported format or unavailable capability produces an honest handback and never a fabricated file or completion claim."
+  ],
+  "tool_list": ["workspace.read", "office"],
+  "skill_list": [
+    "c72c656eca12",
+    "081c15ffbab4",
+    "f283632103ba",
+    "f347f715469c",
+    "36bd44ae956c"
+  ],
+  "inputs": [
+    {
+      "id": "task",
+      "label": "What do you want to do?",
+      "type": "textarea",
+      "default": "",
+      "required": true,
+      "placeholder": "Example: turn these materials into a polished report and generate deliverable Word and PPT files"
+    },
+    {
+      "id": "files",
+      "label": "Related files",
+      "type": "file",
+      "default": [],
+      "required": false,
+      "multiple": true,
+      "accept": ".doc,.docx,.xls,.xlsx,.xlsm,.csv,.tsv,.ppt,.pptx,.pdf,.txt,.md,.wps,.et,.dps"
+    }
+  ],
+  "interactive": true,
+  "icon": "briefcase",
+  "color": "sky",
+  "created_at": "2026-06-04T15:30:00",
+  "updated_at": "2026-09-15T08:24:17.847Z",
+  "category": "office",
+  "min_app_version": "1.6.1"
+}
